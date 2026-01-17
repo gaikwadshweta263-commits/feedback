@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Our Beautiful Teacher</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* -------- PAGE 1 (PINK) -------- */
+    .page1 {
+      height: 100vh;
+      background: linear-gradient(135deg, #ffb6c1, #ffc0cb, #ffe4e1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #8b004f;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 50px 40px;
+      border-radius: 25px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      max-width: 600px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .card h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .card p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      padding: 15px 35px;
+      margin: 10px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .yes {
+      background: #ff69b4;
+      color: white;
+    }
+
+    .yes:hover {
+      background: #ff1493;
+      transform: scale(1.05);
+    }
+
+    .no {
+      background: #f8bbd0;
+      color: #880e4f;
+    }
+
+    .no:hover {
+      background: #f48fb1;
+    }
+
+    /* -------- PAGE 2 (BLUE) -------- */
+    .page2 {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #bbdefb, #e3f2fd, #b3e5fc);
+      padding: 60px 20px;
+      display: none;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: auto;
+      background: rgba(255,255,255,0.9);
+      border-radius: 25px;
+      padding: 40px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      color: #0d47a1;
+    }
+
+    .content h2 {
+      text-align: center;
+      font-size: 34px;
+      margin-bottom: 25px;
+    }
+
+    .content p {
+      font-size: 20px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* -------- SLIDER (UPDATED) -------- */
+    .slider {
+      width: 100%;
+      max-width: 800px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 25px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    .slides img {
+      width: 100%;
+      flex-shrink: 0;
+      height: 480px;
+      object-fit: cover;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .card h1 { font-size: 28px; }
+      .content h2 { font-size: 26px; }
+      .content p { font-size: 18px; }
+      .slides img { height: 300px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page1" id="page1">
+  <div class="card">
+    <h1>🌸 A Small Question 🌸</h1>
+    <p>Are you that beautiful, <strong>Ruchira Mam</strong>? 💖</p>
+    <button class="btn yes" onclick="goNext()">Yes 💕</button>
+    <button class="btn no" onclick="showNoMsg()">No 🙈</button>
+
+    <p id="noMsg" style="display:none; margin-top:20px; font-size:18px; color:#ad1457;">
+      Oops! 😅 That option doesn’t really fit… because beauty like hers is beyond words 💗
+    </p>
+  </div>
+</div>
+
+<!-- PAGE 2 --> <div class="page2" id="page2"> <div class="content"> <h2>💙 Dear Ruchira Mam 💙</h2> <p style="font-size:22px; font-weight:500;"> You are not only beautiful by face, but by soul, confidence, and the warmth you spread around you. 🌷 </p> <p> <strong>She is confident.</strong> ✨<br> <strong>She has excellent communication skills.</strong> 💬<br> <strong>She connects with us so naturally.</strong> 🤍 </p> <p> It was just a <strong>3-day training session</strong>, but the impact you created will stay with us forever. 💫 In such a short time, you involved us, inspired us, and made us feel comfortable and motivated. </p> <p> You are the woman we wish to become in the future. 🌸 When we look at you, we see our dreams, our confidence, and our future self. </p> <p> We will always remember you, your smile, your words, and your guidance. 💙 Thank you for being not just a trainer, but a true inspiration. </p>
+
+    <!-- SLIDER -->
+    <div class="slider">
+      <div class="slides" id="slides">
+        <img src="images/image_1.jpeg" alt="Mam Image 1">
+        <img src="images/image_2.jpeg" alt="Mam Image 2">
+        <img src="images/image_3.jpeg" alt="Mam Image 3">
+      </div>
+    </div>
+
+    <p style="font-size:19px; font-weight:500;">
+      With endless respect, love, and gratitude 💐
+    </p>
+  </div>
+</div>
+
+<script>
+  function goNext() {
+    document.getElementById('page1').style.display = 'none';
+    document.getElementById('page2').style.display = 'block';
+    window.scrollTo(0,0);
+  }
+
+  function showNoMsg() {
+    document.getElementById('noMsg').style.display = 'block';
+  }
+
+  // -------- SLIDER JS --------
+  const slides = document.getElementById("slides");
+  const totalSlides = slides.children.length;
+  let index = 0;
+  let startX = 0;
+
+  setInterval(() => {
+    index = (index + 1) % totalSlides;
+    updateSlide();
+  }, 4500);
+
+  function updateSlide() {
+    slides.style.transform = `translateX(${-index * 100}%)`;
+  }
+
+  slides.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+  });
+
+  slides.addEventListener("touchend", e => {
+    handleSwipe(startX, e.changedTouches[0].clientX);
+  });
+
+  slides.addEventListener("mousedown", e => {
+    startX = e.clientX;
+  });
+
+  slides.addEventListener("mouseup", e => {
+    handleSwipe(startX, e.clientX);
+  });
+
+  function handleSwipe(start, end) {
+    if (start - end > 50) index = (index + 1) % totalSlides;
+    else if (end - start > 50) index = (index - 1 + totalSlides) % totalSlides;
+    updateSlide();
+  }
+</script>
+
+</body>
+</html>
